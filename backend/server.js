@@ -1,4 +1,5 @@
 import express from 'express';
+import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 import { connectDB } from './lib/db.js';
 
@@ -14,6 +15,7 @@ async function startServer(){
 }
 
 app.use(express.json());
+app.use(cookieParser());
 
 app.use('/api/auth',authRoute);
 
