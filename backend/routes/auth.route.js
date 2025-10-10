@@ -7,7 +7,7 @@ import {signUp,login,logout,updateProfile} from '../controllers/auth.controller.
 
 const router=express.Router();
 
-//solving the Rate Limiting and bot detection using arcjet protection
+//midlleware solving the Rate Limiting and bot detection using arcjet protection
 router.use(arcjetProtection);
 
 router.post('/signUp',signUp);
