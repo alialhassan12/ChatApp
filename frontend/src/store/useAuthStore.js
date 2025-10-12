@@ -3,7 +3,7 @@ import {axiosInstance} from '../lib/axios.js';
 import toast from 'react-hot-toast';
 
 
-export const useAuthStore=create((set)=>({
+export const useAuthStore=create((set)=>({  
     authUser:null,
     isCheckingAuth:true,
     isSigingUp:false,
@@ -52,6 +52,16 @@ export const useAuthStore=create((set)=>({
         } catch (error) {
             toast.error("error logging out");
             console.log("error logging out: ",error);
+        }
+    },
+    updateProfile:async(data)=>{
+        try {
+            const res=await axiosInstance.put('/auth/updateProfile',data);
+            set({authUser:res.data});
+            toast.success("Profile updated Successfully");
+        } catch (error) {
+            console.log("Error updating profile",error);
+            toast.error(error.response?.data?.message);
         }
     }
 
