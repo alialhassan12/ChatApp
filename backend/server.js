@@ -7,13 +7,14 @@ import { connectDB } from './lib/db.js';
 //import routes
 import authRoute from './routes/auth.route.js';
 import messageRoute from './routes/message.route.js';
+import { app,server } from './lib/socket.js';
 
 dotenv.config()
 
-const app=express();
+
 async function startServer(){
     await connectDB();
-    app.listen(PORT,()=>console.log(`Server Running On Port ${PORT}`));
+    server.listen(PORT,()=>console.log(`Server Running On Port ${PORT}`));
 }
 
 app.use(express.json({limit:"5mb"}));
