@@ -64,42 +64,44 @@ function MessageInput() {
                 </div>
             )}
 
-            <form onSubmit={handleSendMessage} className="max-w-3xl mx-auto flex space-x-4">
-                <input
+            <form onSubmit={handleSendMessage} className="max-w-3xl mx-auto flex space-x-4 max-[420px]:flex-col max-[420px]:space-y-4 ">
+                <input  
                     type="text"
                     value={text}
                     onChange={(e) => {
                         setText(e.target.value);
                         isSoundEnabled && playRandomKeyStrokeSound();
                     }}
-                    className="flex-1 bg-slate-800/50 border border-slate-700/50 rounded-lg py-2 px-4"
+                    className=" flex-1 bg-slate-800/50 border border-slate-700/50 rounded-lg py-2 px-4"
                     placeholder="Type your message..."
                 />
+                <div className='max-w-3xl  flex space-x-4'>
 
-                <input
-                    type="file"
-                    accept="image/*"
-                    ref={fileInput}
-                    onChange={changeImage}
-                    className="hidden"
-                />
+                    <input
+                        type="file"
+                        accept="image/*"
+                        ref={fileInput}
+                        onChange={changeImage}
+                        className="hidden"
+                    />
+                    <button
+                        type="button"
+                        onClick={() => fileInput.current?.click()}
+                        className={`bg-slate-800/50 text-slate-400 hover:text-slate-200 rounded-lg px-4 transition-colors ${
+                            previewImg ? "text-cyan-500" : ""
+                        }`}
+                    >
+                        <ImageIcon className="w-5 h-5" />
+                    </button>
+                    <button
+                        type="submit"
+                        disabled={!text.trim() && !previewImg}
+                        className="bg-gradient-to-r from-cyan-500 to-cyan-600 text-white rounded-lg px-4 py-2 font-medium hover:from-cyan-600 hover:to-cyan-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                        <SendIcon className="w-5 h-5" />
+                    </button>
+                </div>
 
-                <button
-                    type="button"
-                    onClick={() => fileInput.current?.click()}
-                    className={`bg-slate-800/50 text-slate-400 hover:text-slate-200 rounded-lg px-4 transition-colors ${
-                        previewImg ? "text-cyan-500" : ""
-                    }`}
-                >
-                    <ImageIcon className="w-5 h-5" />
-                </button>
-                <button
-                    type="submit"
-                    disabled={!text.trim() && !previewImg}
-                    className="bg-gradient-to-r from-cyan-500 to-cyan-600 text-white rounded-lg px-4 py-2 font-medium hover:from-cyan-600 hover:to-cyan-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                    <SendIcon className="w-5 h-5" />
-                </button>
             </form>
         </div>
     )

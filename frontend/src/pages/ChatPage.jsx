@@ -14,7 +14,7 @@ export default function ChatPage(){
     return(
         <div className="relative w-full max-w-6xl h-[800px] ">
             <BorderAnimatedContainer >
-                <div className="flex h-full w-full max-[840px]:flex-col  lg:flex-row chatSmallScreen">
+                <div className="flex h-full w-full max-[840px]:flex-col lg:flex-row ">
                     {/* LEFT SIDE */}
                     <div className="w-80 bg-slate-800/50 backdrop-blur-sm flex flex-col max-[840px]:w-full lg:w-80">
                         <ProfileHeader />
