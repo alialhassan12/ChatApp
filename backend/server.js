@@ -10,7 +10,7 @@ import messageRoute from './routes/message.route.js';
 import { app,server } from './lib/socket.js';
 
 dotenv.config()
-
+const __dirname = path.resolve();
 
 async function startServer(){
     await connectDB();
