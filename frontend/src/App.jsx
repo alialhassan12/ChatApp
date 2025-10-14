@@ -2,7 +2,7 @@ import { Navigate, Route, Routes } from "react-router";
 import { Toaster } from "react-hot-toast";
 // import pages
 import ChatPage from "./pages/ChatPage";
-import SignupPage from "./pages/SignUpPage";
+import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 
 //import hooks
